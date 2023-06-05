@@ -24,8 +24,15 @@ export const getFriends = asyncHandler(async (req, res) => {
         const friends = await Promise.all(
             user.friends.map(id => User.findById(id))
         );
-
-        res.status(200).json(friends);
+        const formattedFriends = friends.map(f => {
+            return {
+                ...f._doc,
+                picturePath: f.picturePath
+                    ? "assets/users/" + f.picturePath
+                    : "",
+            };
+        });
+        res.status(200).json(formattedFriends);
     } catch (err) {
         res.status(404);
         throw new Error("Friends not found");
