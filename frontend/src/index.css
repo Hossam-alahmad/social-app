@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "Ibmplex-sans";
+    src: url("assets/fonts/IBMPlexSans-Medium.otf");
+}
+
+@tailwind base;
+@layer base {
+    :root {
+        --primary-color: #efaa0f;
+        --secondry-color: #202021;
+        --third-color: #f0f2f5;
+        --primary-font: #414141;
+        --secondry-font: #fff;
+        --third-font: #ccc;
+        --primary-border: #ddd;
+
+        --d-primary-color: #3790ed;
+        --d-secondry-color: #1f283e;
+        --d-third-color: #1a2035;
+        --d-primary-font: #ddd;
+        --d-secondry-font: #fff;
+        --danger-color: #f44335;
+        --d-primary-border: #545d72;
+        --success-color: #4caf50;
+        --warning-color: #ffbf2f;
+    }
+    body {
+        font-family: "Ibmplex-sans", Tahoma, Arial !important;
+        @apply bg-third dark:bg-third-dark overflow-x-hidden text-primary-font !important;
+    }
+    h1 {
+        @apply text-[1.4rem] sm:text-[1.8rem] !important;
+    }
+    h2 {
+        @apply text-[1.25rem] sm:text-[1.5rem] !important;
+    }
+    h3 {
+        @apply text-[1.15rem] sm:text-[1.3rem] !important;
+    }
+    h4 {
+        @apply text-[.95rem] sm:text-[1rem] !important;
+    }
+    h5 {
+        @apply text-[.85rem] sm:text-[0.8rem] !important;
+    }
+    h6 {
+        @apply text-[.8rem] sm:text-[0.7rem] !important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold !important;
+    }
+    span {
+        @apply text-xs xl:text-[.8rem];
+    }
+    p,
+    label,
+    li {
+        @apply text-sm md:text-[1rem];
+    }
+    input,
+    select {
+        @apply text-[0.875rem] sm:text-[1rem] !important;
+    }
+    table th {
+        @apply text-sm md:text-lg;
+    }
+    table tr {
+        @apply text-xs md:text-sm !important;
+    }
+    button {
+        @apply text-xs lg:text-sm;
+    }
+}
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        @apply bg-third dark:bg-secondry-dark;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-slate-300 dark:dark:bg-third-dark;
+        border-radius: 100vh;
+        border: 3px solid;
+        @apply border-slate-300 dark:border-third-dark;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply dark:bg-third-dark;
+    }
+}

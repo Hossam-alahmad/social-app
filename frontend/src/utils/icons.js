@@ -1,0 +1,40 @@
+import { ImSpinner9 } from "react-icons/im";
+import {
+    HiOutlineMoon,
+    HiOutlineSun,
+    HiOutlineLogout,
+    HiOutlineUser,
+    HiOutlineUserAdd,
+    HiOutlineUserRemove,
+    HiOutlineLocationMarker,
+    HiOutlineBriefcase,
+    HiOutlineShare,
+    HiOutlineCamera,
+    HiOutlineClipboardCheck,
+    HiPaperClip,
+    HiOutlineTrash,
+    HiCamera,
+} from "react-icons/hi";
+import { GoComment } from "react-icons/go";
+import { AiOutlineAudio, AiOutlineLike, AiFillLike } from "react-icons/ai";
+export const icons = {
+    spinner: <ImSpinner9 />,
+    dark: <HiOutlineMoon />,
+    light: <HiOutlineSun />,
+    logout: <HiOutlineLogout />,
+    user: <HiOutlineUser />,
+    addUser: <HiOutlineUserAdd />,
+    removeUser: <HiOutlineUserRemove />,
+    location: <HiOutlineLocationMarker />,
+    briefcase: <HiOutlineBriefcase />,
+    img: <HiOutlineCamera />,
+    imgFill: <HiCamera />,
+    clip: <HiOutlineClipboardCheck />,
+    audio: <AiOutlineAudio />,
+    attachment: <HiPaperClip />,
+    trash: <HiOutlineTrash />,
+    like: <AiOutlineLike />,
+    fillLike: <AiFillLike />,
+    comment: <GoComment />,
+    share: <HiOutlineShare />,
+};
