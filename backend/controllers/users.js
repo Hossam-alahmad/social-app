@@ -9,7 +9,17 @@ export const getUser = asyncHandler(async (req, res) => {
     try {
         const { id } = req.params;
         const user = await User.findById(id);
-        res.status(200).json(user);
+        if (user) {
+            const formattedUser = {
+                ...user._doc,
+                picturePath: user.picturePath
+                    ? "assets/users/" + user.picturePath
+                    : "",
+            };
+            res.status(200).json(formattedUser);
+        }
+        res.status(404);
+        throw new Error("User not found");
     } catch (err) {
         res.status(404);
         throw new Error("User not found");

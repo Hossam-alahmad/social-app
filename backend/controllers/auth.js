@@ -33,6 +33,7 @@ export const register = async (req, res) => {
 
 export const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
+
     const user = await User.findOne({ email });
     if (user) {
         if ((await bcrypt.compare(password, user.password)) === false) {
@@ -46,6 +47,9 @@ export const login = asyncHandler(async (req, res) => {
         return res.status(200).json({
             user: {
                 ...user._doc,
+                picturePath: user.picturePath
+                    ? "assets/users/" + user.picturePath
+                    : "",
             },
             token: token,
             expireHours: 8,

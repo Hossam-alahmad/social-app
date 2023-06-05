@@ -64,7 +64,9 @@ const Index = ({ user }) => {
     const addRemoveFriend = () => {
         userServices
             .addRemoveFriend(currentUser._id, user._id)
-            .then(res => queryClient.refetchQueries("getUserFriends"))
+            .then(res =>
+                queryClient.refetchQueries(["getUserFriends", "getPosts"])
+            )
             .catch(err => console.log(err));
     };
     return (

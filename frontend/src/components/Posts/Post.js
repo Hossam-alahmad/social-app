@@ -36,7 +36,7 @@ const Post = ({ data }) => {
                     comment: values.comment,
                     date: new Date(),
                     userImage: user.picturePath,
-                    userId: data.userId,
+                    userId: user?._id,
                 },
             };
             postsServices
