@@ -64,7 +64,7 @@ const SignUp = () => {
     };
     return (
         <div className="py-10">
-            <div className="relative bg-white w-2/4 shadow-sm rounded-sm p-4 mx-auto dark:bg-secondry-dark ">
+            <div className="relative bg-white w-3/4 md:w-2/4 shadow-sm rounded-sm p-4 mx-auto dark:bg-secondry-dark ">
                 <h2 className="text-center mb-4">Sign Up</h2>
                 <FormikContainer
                     initialValues={initialValues}
