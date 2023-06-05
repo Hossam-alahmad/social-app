@@ -198,7 +198,12 @@ const Index = ({ user }) => {
                     data.map(f => (
                         <div className="flex" key={f._id}>
                             <img
-                                src={f.picturePath ? f.picturePath : avatar}
+                                src={
+                                    f.picturePath
+                                        ? process.env.REACT_APP_BACKEND_API +
+                                          f.picturePath
+                                        : avatar
+                                }
                                 alt="user img"
                                 className="w-[50px] h-[50px] rounded-full mr-2 object-cover"
                             />
