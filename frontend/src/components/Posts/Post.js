@@ -23,7 +23,7 @@ const Post = ({ data }) => {
         data.userId === user?._id ? "/profile" : "/profile/" + data.userId;
     const likeClickHandler = () => {
         postsServices
-            .addRemoveLike(data._id, data.userId)
+            .addRemoveLike(data._id, user._id)
             .then(res => queryClient.refetchQueries("getPosts"))
             .catch(err => console.log(err));
     };
@@ -35,7 +35,9 @@ const Post = ({ data }) => {
                     fullname: user.firstname + " " + user.lastname,
                     comment: values.comment,
                     date: new Date(),
-                    userImage: user.picturePath,
+                    userImage: user.picturePath
+                        ? user.picturePath.split("/")[2]
+                        : "",
                     userId: user?._id,
                 },
             };
@@ -93,9 +95,7 @@ const Post = ({ data }) => {
                             onClick={likeClickHandler}
                             className="text-xl mr-2 flex items-center"
                         >
-                            {data.likes[data.userId]
-                                ? icons.fillLike
-                                : icons.like}{" "}
+                            {data.likes[user._id] ? icons.fillLike : icons.like}{" "}
                             <span className="ml-1 text-lg">
                                 {Object.keys(data.likes).length}
                             </span>

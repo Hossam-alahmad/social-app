@@ -8,10 +8,11 @@ const Index = ({ postInfo }) => {
             {postInfo.comments
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .map(p => {
+                    console.log(p);
                     return (
                         <div
                             key={p.userId}
-                            className="flex mb-4  p-2 bg-slate-100 dark:bg-slate-700 rouned-sm"
+                            className="flex mb-4  p-2 bg-slate-100 dark:bg-slate-700 rouned-sm "
                         >
                             <Link to={`/profile/${p.userId}`}>
                                 <img

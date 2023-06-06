@@ -57,6 +57,7 @@ const Index = ({ user }) => {
                         "social-app-user",
                         JSON.stringify(res.data)
                     );
+                    queryClient.refetchQueries("getPosts");
                 })
                 .catch(err => console.log(err));
         }
@@ -198,7 +199,7 @@ const Index = ({ user }) => {
                     <p>No friends in your list</p>
                 ) : (
                     data.map(f => (
-                        <div className="flex" key={f._id}>
+                        <div className="flex mb-4" key={f._id}>
                             <img
                                 src={
                                     f.picturePath
@@ -210,9 +211,9 @@ const Index = ({ user }) => {
                                 className="w-[50px] h-[50px] rounded-full mr-2 object-cover"
                             />
                             <div>
-                                <h3>
+                                <h4>
                                     {f.firstname} {f.lastname}
-                                </h3>
+                                </h4>
                                 <span className="text-slate-600 dark:text-slate-400">
                                     {f.location}
                                 </span>

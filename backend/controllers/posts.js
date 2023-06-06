@@ -36,6 +36,10 @@ export const getFeedPosts = asyncHandler(async (req, res) => {
             userPicturePath: p.userPicturePath
                 ? "assets/users/" + p.userPicturePath
                 : "",
+            comments: p.comments.map(c => ({
+                ...c,
+                userImage: c.userImage ? "assets/users/" + c.userImage : "",
+            })),
         };
     });
     res.status(200).json(formattedPost);
@@ -55,6 +59,10 @@ export const getUserPosts = asyncHandler(async (req, res) => {
             userPicturePath: p.userPicturePath
                 ? "assets/users/" + p.userPicturePath
                 : "",
+            comments: p.comments.map(c => ({
+                ...c,
+                userImage: c.userImage ? "assets/users/" + c.userImage : "",
+            })),
         };
     });
     res.status(200).json(formattedPost);

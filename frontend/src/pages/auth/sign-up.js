@@ -34,6 +34,8 @@ const validationSchema = Yup.object().shape({
         .required("This field required"),
 });
 const SignUp = () => {
+    document.title = "Social App | Sign Up";
+
     const navigate = useNavigate();
     useEffect(() => {
         const cookies = getCookie("token");

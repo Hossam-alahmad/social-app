@@ -29,6 +29,7 @@ const validationSchema = Yup.object().shape({
 const Login = () => {
     const _dispatch = useDispatch();
     const navigate = useNavigate();
+    document.title = "Social App | Login";
     useEffect(() => {
         const cookies = getCookie("token");
         if (cookies !== "") {

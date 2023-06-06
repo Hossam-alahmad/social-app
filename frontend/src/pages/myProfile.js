@@ -7,6 +7,8 @@ import Loading from "../components/Loading";
 import PostForm from "../components/PostForm";
 import Posts from "../components/Posts";
 const MyProfile = () => {
+    document.title = "Social App | Profile";
+
     const { user } = useSelector(state => state.auth);
     const { data, isLoading, error } = useQuery(
         ["getUserPosts", user],
@@ -20,7 +22,7 @@ const MyProfile = () => {
                 <UserAsideInfo user={user} />
             </div>
             <div className="posts  lg:col-span-2">
-                <PostForm />
+                <PostForm user={user} />
                 <Posts data={data} isLoading={isLoading} error={error} />
             </div>
         </div>

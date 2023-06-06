@@ -98,10 +98,38 @@ export const uploadUserImage = asyncHandler(async (req, res) => {
         });
     }
     user.picturePath = req.file.filename ? req.file.filename : "";
-    await Post.updateMany(
-        { userId: id },
-        { userPicturePath: user.picturePath }
-    );
+    const posts = await Post.find();
+    if (posts.length > 0) {
+        posts.forEach(async cp => {
+            const comments = cp.comments.map(c => {
+                if (c.userId === id) {
+                    return {
+                        ...c,
+                        userImage: user.picturePath,
+                    };
+                }
+                return c;
+            });
+            await Post.findByIdAndUpdate(cp._id, {
+                ...cp._doc,
+                userPicturePath:
+                    cp.userId === id ? user.picturePath : cp.userPicturePath,
+                comments: comments,
+            });
+        });
+        // await Promise.all(
+        //     currentPosts.forEach(cp => {
+        //         const comments = cp.map(c => ({
+        //             ...c,
+        //             userImage: user.picturePath,
+        //         }));
+        //         Post.updateMany(
+        //             { userId: id },
+        //             { userPicturePath: user.picturePath, comments: comments }
+        //         );
+        //     })
+        // );
+    }
     user.save();
 
     const formattedUser = {

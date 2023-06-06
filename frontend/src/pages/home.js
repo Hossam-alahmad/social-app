@@ -6,6 +6,8 @@ import ads from "../assets/images/ads/ads.png";
 import postServices from "../services/posts";
 import { useQuery } from "react-query";
 const Home = () => {
+    document.title = "Social App | Home";
+
     const { user } = useSelector(state => state.auth);
     const { data, isLoading, error } = useQuery(
         "getPosts",

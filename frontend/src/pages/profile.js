@@ -10,6 +10,8 @@ import PostForm from "../components/PostForm";
 import Posts from "../components/Posts";
 
 const Profile = () => {
+    document.title = "Social App | Profile";
+
     const { userId } = useParams();
     const results = useQueries([
         {
