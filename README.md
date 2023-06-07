@@ -1,7 +1,7 @@
 
 # Social App Demo
 
-Social App Demo createating for learning porpose using raect - tailwindcss - node js - express js
+Social App Demo createating for learning porpose using react - tailwindcss - node js - express js
 
 
 
