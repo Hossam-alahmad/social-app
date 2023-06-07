@@ -129,7 +129,7 @@ Start Server
 | :-------- | :------- | :------------------------- |
 | `userId` | `string` | **Required** |
 | `description` | `string` | **Required** |
-| `picturePath` | `string` | **Required** |
+| `picturePath` | `binary` | **Not Required** |
 
 
 #### Get feed posts
