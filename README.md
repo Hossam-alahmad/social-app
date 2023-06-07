@@ -1,7 +1,8 @@
 
 # Social App Demo
 
-A brief description of what this project does and who it's for
+Social App Demo createating for learning porpose using raect - tailwindcss - node js - express js
+
 
 
 ## Demo
